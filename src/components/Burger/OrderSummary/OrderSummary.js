@@ -17,7 +17,7 @@ const orderSummary = props => {
             <ul>
                 {ingredientSummary}
             </ul>
-            <p>Countinue to checkout</p>
+            <p>Proceed to checkout?</p>
         </Aux>
     );
 };
