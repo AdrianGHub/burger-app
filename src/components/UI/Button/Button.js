@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "*.module.css";
+import classes from "./Button.module.css";
 
 const button = (props) => {
 	return (
@@ -9,7 +9,7 @@ const button = (props) => {
 		>
 			{props.children}
 		</button>
-	);
+	); 
 };
 
 export default button;
