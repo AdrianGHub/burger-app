@@ -1,17 +1,18 @@
-import React from 'react';
-import classes from '../Toolbar/Toolbar.module.css';
-import Logo from '../../Logo/Logo';
+import React from "react";
+import classes from "../Toolbar/Toolbar.module.css";
+import Logo from "../../Logo/Logo";
+import NavigationItems from "../NavigationItems/NavigationItems";
 
 const toolbar = () => {
-    return (
-        <header className={classes.Toolbar}>
-            <div>MENU</div>
-            <Logo />
-            <nav>
-                ...
-            </nav>
-        </header>
-    );
+	return (
+		<header className={classes.Toolbar}>
+			<div>MENU</div>
+			<Logo />
+			<nav>
+				<NavigationItems />
+			</nav>
+		</header>
+	);
 };
 
 export default toolbar;
