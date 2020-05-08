@@ -16,3 +16,9 @@
 .Toobar nav {
     height: 100%;
 }
+
+@media (max-width: 499px) {
+    .DesktopOnly {
+        display: none;
+    }
+}
