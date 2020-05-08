@@ -5,6 +5,7 @@ import Burger from "../../components/Burger/Burger";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
+import PropTypes from 'prop-types';
 
 const INGREDIENT_PRICES = {
 	salad: 1.1,
@@ -121,6 +122,10 @@ class BurgerBuilder extends Component {
 			</Aux>
 		);
 	}
+}
+
+INGREDIENT_PRICES.propTypes = {
+	price: PropTypes.number.isRequired
 }
 
 export default BurgerBuilder;
