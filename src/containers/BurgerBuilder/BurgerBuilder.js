@@ -7,6 +7,7 @@ import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 import PropTypes from 'prop-types';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import axios from '../../axios-orders';
 
 const INGREDIENT_PRICES = {
@@ -157,4 +158,4 @@ INGREDIENT_PRICES.propTypes = {
 	price: PropTypes.number.isRequired
 };
 
-export default BurgerBuilder;
+export default withErrorHandler(BurgerBuilder, axios);
