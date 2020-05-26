@@ -1,6 +1,12 @@
 .Content {
     margin-top: 72px;
-    height: calc(100vh - 95px);
+    height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
+}
+
+@media(min-width: 500px) {
+    .Content {
+        height: calc(100vh - 72px);
+    }
 }
