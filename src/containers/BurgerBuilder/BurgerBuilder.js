@@ -6,6 +6,7 @@ import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 import PropTypes from 'prop-types';
+import axios from '../../axios-orders';
 
 const INGREDIENT_PRICES = {
 	salad: 1.1,
@@ -87,7 +88,24 @@ class BurgerBuilder extends Component {
     };
     
     purchaseContinueHandler = () => {
-        alert("Successfully continued!");
+		// alert("Successfully continued!");
+		const order = {
+			ingredients: this.state.ingredients,
+			price: this.state.totalPrice,
+			customer: {
+				name: 'Drian Ko',
+				address: {
+					street: 'Ameryka 1',
+					zipCode: '81222',
+					country: 'Polska'
+				},
+				email: 'test@test.com'
+			},
+			deliveryMethod: 'fastcash'
+		};
+		axios.post('/orders.json', order)
+			.then(response => console.log(response))
+			.catch(err => console.log(err));
     }
 
 	render() {
@@ -126,6 +144,6 @@ class BurgerBuilder extends Component {
 
 INGREDIENT_PRICES.propTypes = {
 	price: PropTypes.number.isRequired
-}
+};
 
 export default BurgerBuilder;
