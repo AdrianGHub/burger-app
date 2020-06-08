@@ -11,6 +11,16 @@ state = {
     }
 }
 
+componentDidMount() {
+    const query = new URLSearchParams(this.props.location.search);
+    const ingredients = {};
+    for (let param of query.entries()) {
+        // format for each key ==>['bacon', '1']
+        ingredients[param[0]] = +param[1];
+    }
+    this.setState({ingredients: ingredients});
+}
+
 checkoutCancelledHandler = () => {
     this.props.history.goBack();
 }
