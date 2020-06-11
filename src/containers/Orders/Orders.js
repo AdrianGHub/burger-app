@@ -33,7 +33,7 @@ class Orders extends Component {
                     <Order 
                         key={order.id}
                         ingredients={order.ingredients}
-                        price={order.price}/>)}
+                        price={Number(order.price).toFixed(2)}/>)}
             </div>
         );
     }
