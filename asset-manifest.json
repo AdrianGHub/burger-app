@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/burger-app/static/css/main.8187c270.chunk.css",
-    "main.js": "/burger-app/static/js/main.8fb120be.chunk.js",
-    "main.js.map": "/burger-app/static/js/main.8fb120be.chunk.js.map",
+    "main.js": "/burger-app/static/js/main.d1fdd89e.chunk.js",
+    "main.js.map": "/burger-app/static/js/main.d1fdd89e.chunk.js.map",
     "runtime-main.js": "/burger-app/static/js/runtime-main.7222db98.js",
     "runtime-main.js.map": "/burger-app/static/js/runtime-main.7222db98.js.map",
     "static/js/2.5d4669ef.chunk.js": "/burger-app/static/js/2.5d4669ef.chunk.js",
     "static/js/2.5d4669ef.chunk.js.map": "/burger-app/static/js/2.5d4669ef.chunk.js.map",
     "index.html": "/burger-app/index.html",
-    "precache-manifest.31f75ff5eee8d2a9d7166e36c93c7577.js": "/burger-app/precache-manifest.31f75ff5eee8d2a9d7166e36c93c7577.js",
+    "precache-manifest.3ec5ec91bb1bd6a59bbe9f0de36ca659.js": "/burger-app/precache-manifest.3ec5ec91bb1bd6a59bbe9f0de36ca659.js",
     "service-worker.js": "/burger-app/service-worker.js",
     "static/css/main.8187c270.chunk.css.map": "/burger-app/static/css/main.8187c270.chunk.css.map",
     "static/js/2.5d4669ef.chunk.js.LICENSE.txt": "/burger-app/static/js/2.5d4669ef.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.7222db98.js",
     "static/js/2.5d4669ef.chunk.js",
     "static/css/main.8187c270.chunk.css",
-    "static/js/main.8fb120be.chunk.js"
+    "static/js/main.d1fdd89e.chunk.js"
   ]
 }
