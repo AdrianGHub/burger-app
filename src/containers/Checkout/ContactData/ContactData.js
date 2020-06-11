@@ -30,15 +30,15 @@ class ContactData extends Component {
 				},
 				email: "test@test.com",
 			},
-			deliveryMethod: "fastcash",
+			deliveryMethod: "fastest",
 		};
 		axios
-			.post("/orders.json", order)
-			.then((response) => {
+			.post('/orders.json', order)
+			.then(response => {
                 this.setState({ loading: false });
                 this.props.history.push('/');
 			})
-			.catch((err) => {
+			.catch(err => {
 				this.setState({ loading: false });
 			});
 	};
