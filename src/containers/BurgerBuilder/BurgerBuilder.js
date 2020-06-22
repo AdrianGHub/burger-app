@@ -5,10 +5,10 @@ import Burger from "../../components/Burger/Burger";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
-import PropTypes from 'prop-types';
-import Spinner from '../../components/UI/Spinner/Spinner';
-import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
-import axios from '../../axios-orders';
+import PropTypes from "prop-types";
+import Spinner from "../../components/UI/Spinner/Spinner";
+import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
+import axios from "../../axios-orders";
 
 const INGREDIENT_PRICES = {
 	salad: 1.1,
@@ -26,18 +26,19 @@ class BurgerBuilder extends Component {
 			purchasable: false,
 			purchasing: false,
 			loading: false,
-			error: false
+			error: false,
 		};
 	}
 
-	componentDidMount () {
-		axios.get('https://burger-app-adee6.firebaseio.com/ingredients.json')
-		.then(response => {
-			this.setState({ingredients: response.data});
-		})
-		.catch(error => {
-			this.setState({error: true});
-		});
+	componentDidMount() {
+		axios
+			.get("https://burger-app-adee6.firebaseio.com/ingredients.json")
+			.then((response) => {
+				this.setState({ ingredients: response.data });
+			})
+			.catch((error) => {
+				this.setState({ error: true });
+			});
 	}
 
 	updatedPurchaseState(ingredients) {
@@ -94,21 +95,25 @@ class BurgerBuilder extends Component {
 
 	purchaseCancelHandler = () => {
 		this.setState({ purchasing: false });
-    };
-    
-    purchaseContinueHandler = () => {
+	};
+
+	purchaseContinueHandler = () => {
 		// alert("Successfully continued!");
 		const queryParams = [];
 		for (let i in this.state.ingredients) {
-			queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
+			queryParams.push(
+				encodeURIComponent(i) +
+					"=" +
+					encodeURIComponent(this.state.ingredients[i])
+			);
 		}
-		queryParams.push('price=' + this.state.totalPrice);
-		const queryString = queryParams.join('&');
+		queryParams.push("price=" + this.state.totalPrice);
+		const queryString = queryParams.join("&");
 		this.props.history.push({
-			pathname: '/checkout', 
-			search: '?' + queryString
+			pathname: "/checkout",
+			search: "?" + queryString,
 		});
-    }
+	};
 
 	render() {
 		const disabledInfo = {
@@ -118,28 +123,35 @@ class BurgerBuilder extends Component {
 			disabledInfo[key] = disabledInfo[key] <= 0;
 		}
 		let orderSummary = null;
-	
-		let burger = this.state.error ? <p>Ingredients can't be loaded...</p> : <Spinner />; 
+
+		let burger = this.state.error ? (
+			<p>Ingredients can't be loaded...</p>
+		) : (
+			<Spinner />
+		);
 
 		if (this.state.ingredients) {
 			burger = (
 				<Aux>
 					<Burger ingredients={this.state.ingredients} />
 					<BuildControls
-					ingredientAdded={this.addIngredientHandler}
-					ingredientRemoved={this.removeIngredientHandler}
-					disabled={disabledInfo}
-					price={this.state.totalPrice}
-					purchasable={this.state.purchasable}
-					ordered={this.purchaseHandler} />
-
+						ingredientAdded={this.addIngredientHandler}
+						ingredientRemoved={this.removeIngredientHandler}
+						disabled={disabledInfo}
+						price={this.state.totalPrice}
+						purchasable={this.state.purchasable}
+						ordered={this.purchaseHandler}
+					/>
 				</Aux>
 			);
-			orderSummary = 	<OrderSummary 
-				price={this.state.totalPrice.toFixed(2)}
-				ingredients={this.state.ingredients}
-				purchaseCancelled={this.purchaseCancelHandler} 
-				purchaseContinued={this.purchaseContinueHandler} />;
+			orderSummary = (
+				<OrderSummary
+					price={this.state.totalPrice.toFixed(2)}
+					ingredients={this.state.ingredients}
+					purchaseCancelled={this.purchaseCancelHandler}
+					purchaseContinued={this.purchaseContinueHandler}
+				/>
+			);
 		}
 
 		if (this.state.loading) {
@@ -150,7 +162,7 @@ class BurgerBuilder extends Component {
 			<Aux>
 				<Modal
 					show={this.state.purchasing}
-                    modalClosed={this.purchaseCancelHandler}
+					modalClosed={this.purchaseCancelHandler}
 				>
 					{orderSummary}
 				</Modal>
@@ -159,9 +171,5 @@ class BurgerBuilder extends Component {
 		);
 	}
 }
-
-INGREDIENT_PRICES.propTypes = {
-	price: PropTypes.number.isRequired
-};
 
 export default withErrorHandler(BurgerBuilder, axios);
