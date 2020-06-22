@@ -33,4 +33,5 @@
 
 .errorMessage {
     color: rgba(255, 0, 0, 0.5);
+    margin: 5px 0;
 }

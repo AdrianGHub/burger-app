@@ -48,6 +48,7 @@ class ContactData extends Component {
 				},
 				valid: false,
 				touched: false,
+				errorMessage: "Zip code should be 6 digits long!",
 			},
 			country: {
 				elementType: "input",
@@ -169,6 +170,8 @@ class ContactData extends Component {
 						invalid={!formElement.config.valid}
 						shouldValidate={formElement.config.validation}
 						touched={formElement.config.touched}
+						valueType={formElement.id}
+						errorMessage={formElement.config.errorMessage}
 						changed={(event) =>
 							this.inputChangedHandler(event, formElement.id)
 						}

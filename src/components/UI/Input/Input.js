@@ -8,7 +8,11 @@ const input = (props) => {
 	let validationError = null;
 	if (props.invalid && props.touched) {
 		validationError = (
-			<p className={classes.errorMessage}>Provide some valid value!</p>
+			<p className={classes.errorMessage}>
+				{props.valueType === "zipCode"
+					? props.errorMessage
+					: `Provide valid ${props.valueType}!`}
+			</p>
 		);
 	}
 
